@@ -8,7 +8,8 @@
 The report is provided in `.pbix` format and is designed to be opened using **Microsoft Power BI Desktop**.  
 Please ensure you have Power BI Desktop installed to view and interact with the dashboard.
 
-📎 [Download the Power BI Report – India vs Australia](India_vs_Australia.pbix)
+📎[Download Power BI File (PBIX)](https://github.com/sujithts31618-ui/Fitness/raw/main/Fitness_analysis.pbix)
+
 
 ## LinkedIn
 https://tinyurl.com/IndiaVsAustraliaDashboard
@@ -102,10 +103,7 @@ SWITCH(
 *Date:* 30th August 2025
 
 ## 📂 Download .pbix 
-[Click here to download the Power BI report](India_vs_Australia.pbix)
-
-🎥 [Watch the interactive video demo on LinkedIn] 
-## Link : https://tinyurl.com/IndiaVsAustraliaDashboard
+📊 [Download Power BI File (PBIX)](https://github.com/sujithts31618-ui/Fitness/raw/main/Fitness_analysis.pbix)
 
 ## 📌 Data Source Mockaroo web
 

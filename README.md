@@ -17,19 +17,6 @@ https://tinyurl.com/IndiaVsAustraliaDashboard
 
 Managing a fitness center involves tracking multiple aspects such as client memberships, revenue, trainer allocation, and payment behaviors. However, data is often scattered across different sources, making it difficult for management to monitor performance in real-time. Without a centralized view, it becomes challenging to identify active vs. inactive members, analyze revenue trends, understand membership distribution, and target the right audience with promotional campaigns. This lack of visibility limits informed decision-making and impacts both operational efficiency and business growth.
 
-- The challenge lies in:
-
-Transforming large volumes of raw cricket statistics into meaningful insights.
-
-Enabling player-wise analysis for comparing performance across different matches.
-
-Showcasing key performance indicators (KPIs) like runs, strike rate, wickets, economy rate, etc., in an intuitive and interactive manner.
-
-Enhancing storytelling with visuals and navigation to make cricket analytics more engaging and accessible.
-
-
-This project addresses these challenges by building an interactive Power BI Dashboard that analyzes batting and bowling statistics of players in India vs Australia ODI matches. The dashboard leverages Cricinfo’s Statsguru data (imported directly from the web) and provides slicers, buttons, and KPI visuals to make performance tracking interactive, insightful, and user-friendly.
-
 
 ### Steps followed 
 
@@ -43,32 +30,71 @@ This project addresses these challenges by building an interactive Power BI Dash
 - Step 8 : Slicer: Gender, Units, Date Range, Age Group.
 - Step 9 : Image & Branding: Fitness logo, workout image.
 
+### DAX logics
+
+- Total Clients = COUNTROWS(Clients)
+- Num of Trainers = COUNTROWS(Trainers)
+- Revenue = SUM ( Payments[AmountAfterDiscount] )
+- Active Members =
+CALCULATE (
+    COUNTROWS ( Clients ),
+    FILTER ( Clients, Clients[Status] = "Active" )
+)
+- Inactive Members =
+CALCULATE (
+    COUNTROWS ( Clients ),
+    FILTER ( Clients, Clients[Status] = "Inactive" )
+)
+- Active Membership =
+CALCULATE (
+    COUNTROWS ( Membership ),
+    FILTER ( Membership, Membership[Status] = "Active" )
+)
+- Inactive Membership =
+CALCULATE (
+    COUNTROWS ( Membership ),
+    FILTER ( Membership, Membership[Status] = "Inactive" )
+)
+- Age Group =
+SWITCH(
+    TRUE(),
+    Clients[Age] >= 15 && Clients[Age] <= 20, "15-20",
+    Clients[Age] >= 21 && Clients[Age] <= 30, "21-30",
+    Clients[Age] >= 31 && Clients[Age] <= 40, "31-40",
+    Clients[Age] >= 41 && Clients[Age] <= 50, "41-50",
+    Clients[Age] >= 51 && Clients[Age] <= 60, "51-60",
+    "Other"
+)
+
+
 
 # Report Snapshot (Power BI DESKTOP) 
 1.
-![Cover Image Snapshot](https://raw.githubusercontent.com/sujithts31618-ui/Power_Bi_Dashboard-/main/Sachin_2025-08-21-004752.png)
-
+![Dashboard](https://raw.githubusercontent.com/sujithts31618-ui/Fitness/main/Fit_1.png)
 
 
 2.
 
-![Cover Image Snapshot](https://raw.githubusercontent.com/sujithts31618-ui/Power_Bi_Dashboard-/main/Virat_2025-08-21_004819.png)
+![Dashboard](https://raw.githubusercontent.com/sujithts31618-ui/Fitness/main/Fit_2.png)
 
 
 3.
 
-![Cover Image Snapshot](https://raw.githubusercontent.com/sujithts31618-ui/Power_Bi_Dashboard-/main/Dhoni_2025-08-21_004945.png)
-
+![Dashboard](https://raw.githubusercontent.com/sujithts31618-ui/Fitness/main/Fit_3.png)
 
 4.
 
-![Cover Image Snapshot](https://raw.githubusercontent.com/sujithts31618-ui/Power_Bi_Dashboard-/main/Kedar_2025-08-21_004921.png)
+![Dashboard](https://raw.githubusercontent.com/sujithts31618-ui/Fitness/main/Fit_4.png)
 
 5.
 
-![Cover Image Snapshot](https://raw.githubusercontent.com/sujithts31618-ui/Power_Bi_Dashboard-/main/Gaikwad_2025-08-1_213347.png)
+![Dashboard](https://raw.githubusercontent.com/sujithts31618-ui/Fitness/main/Fit_5.png)
 
+## 🎯 Outcome of the Dashboard
 
+- The Fitness Dashboard provides a 360° view of Extreme Fitmess performance, enabling management to monitor client activity, membership trends, and financial performance in real time. It highlights total revenue, client engagement (active vs inactive), trainer availability, and membership distribution (Gold, Platinum, Silver).
+
+- By analyzing age groups, gender, and payment patterns, the dashboard helps identify target segments for promotions, preferred payment methods, and client retention opportunities. This ensures data-driven decision-making for business growth.
 
 ## 👨‍💻 Author
 *Dashboard Created By:* Sujith TS 
@@ -81,6 +107,5 @@ This project addresses these challenges by building an interactive Power BI Dash
 🎥 [Watch the interactive video demo on LinkedIn] 
 ## Link : https://tinyurl.com/IndiaVsAustraliaDashboard
 
-## 📌 Data Source WEB
-All cricket statistics used in this dashboard have been sourced from  
-[ESPN Cricinfo – Statsguru](https://stats.espncricinfo.com/)
+## 📌 Data Source Mockaroo web
+

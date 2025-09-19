@@ -1,11 +1,4 @@
-
-# Dashboard: Extreme Fitness – Membership & Revenue Analytics
-
 ![Dashboard](https://raw.githubusercontent.com/sujithts31618-ui/Fitness/main/IMG_20250920_035704.png)
-
-
-    
-
 
 ## 📊 Power BI Report Download
 
